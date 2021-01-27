@@ -1,5 +1,6 @@
 package idv.luchafang.videotrimmer
 
+import android.content.Context
 import idv.luchafang.videotrimmer.data.TrimmerDraft
 import idv.luchafang.videotrimmer.slidingwindow.SlidingWindowView
 import idv.luchafang.videotrimmer.tools.extractVideoLength
@@ -76,13 +77,13 @@ internal class VideoTrimmerPresenter : VideoTrimmerContract.Presenter,
                 && maxDuration >= minDuration
     }
 
-    override fun show() {
+    override fun show(context: Context) {
         if (!isValidState()) {
             return
         }
 
         val video = this.video ?: return
-        videoLength = extractVideoLength(video.path)
+        videoLength = extractVideoLength(video.path, context)
 
         if (videoLength < minDuration) {
             // TODO

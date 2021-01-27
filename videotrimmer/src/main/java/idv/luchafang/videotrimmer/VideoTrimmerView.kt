@@ -143,7 +143,7 @@ class VideoTrimmerView @JvmOverloads constructor(
     }
 
     fun show() {
-        presenter?.show()
+        presenter?.show(context)
     }
 
     fun getTrimmerDraft(): TrimmerDraft? = presenter?.getTrimmerDraft()

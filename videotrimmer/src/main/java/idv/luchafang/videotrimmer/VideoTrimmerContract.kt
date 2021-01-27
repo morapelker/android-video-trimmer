@@ -1,5 +1,6 @@
 package idv.luchafang.videotrimmer
 
+import android.content.Context
 import idv.luchafang.videotrimmer.data.TrimmerDraft
 import java.io.File
 
@@ -24,7 +25,7 @@ internal interface VideoTrimmerContract {
         fun setOnSelectedRangeChangedListener(listener: VideoTrimmerView.OnSelectedRangeChangedListener)
 
         fun isValidState(): Boolean
-        fun show()
+        fun show(context: Context)
 
         fun getTrimmerDraft(): TrimmerDraft
         fun restoreTrimmer(draft: TrimmerDraft)
